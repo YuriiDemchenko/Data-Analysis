@@ -18,3 +18,15 @@ print(stockSeries.shape)
 print(stockSeries.sum())
 print('Last 2 elements in stockSeries:\n', stockSeries.tail(2))
 print(stockSeries.memory_usage())
+
+print(150 in stockSeries.values)
+
+crypto_list = ['BTC','XRP','LTC', 'ADA', 'ETH'] 
+crypto_series = pd.Series(data = crypto_list)
+print(crypto_series.dtype)
+
+crypto_prices = pd.Series(data = [400, 500, 1500, 20, 70])
+print(crypto_prices.mean())
+
+my_series = pd.Series(data = [-100, 100, -300, 50, 100])
+print(abs(my_series))
