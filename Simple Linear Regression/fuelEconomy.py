@@ -71,4 +71,4 @@ plt.show()  # Display the plot of the model on the test set
 g = sns.PairGrid(fuelEconomy_df)
 g.map_diag(sns.histplot)
 g.map_offdiag(sns.scatterplot)
-plt.show()
+plt.show()  # Display the pairplot of the data
