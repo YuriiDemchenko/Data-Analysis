@@ -19,21 +19,28 @@ print(
 print()
 print(iron_concentrate_values.max())  # Check for max value of '% Iron Concentrate'
 
-# mining_df.hist(bins=30, figsize=(20, 20), color='forestgreen') # Histogram
-# plt.show()
+for i in mining_df.columns[:3]:
+    mining_df.hist(
+        i, bins=30, figsize=(8, 8), color="forestgreen"
+    )  # Histogram for first 3 columns
+    plt.show()
+mining_df.hist(bins=30, figsize=(8, 8), color="forestgreen")  # Histogram
+plt.show()
 
 print(mining_df.corr())
 
-# plt.figure(figsize=(8, 8))
-# sns.heatmap(mining_df.corr(), annot=True)
-# plt.show()
+plt.figure(figsize=(8, 8))
+sns.heatmap(mining_df.corr(), annot=True)
+plt.show()
 
-# plt.figure(figsize=(10, 10))
-# plt.scatter(mining_df['% Silica Concentrate'], mining_df['% Iron Concentrate'])  # Scatter plot
-# plt.xlabel('% Silica Concentrate')
-# plt.ylabel('% Iron Concentrate')
-# plt.title('Silica Concentrate vs Iron Concentrate')
-# plt.show()
+plt.figure(figsize=(10, 10))
+plt.scatter(
+    mining_df["% Silica Concentrate"], mining_df["% Iron Concentrate"]
+)  # Scatter plot
+plt.xlabel("% Silica Concentrate")
+plt.ylabel("% Iron Concentrate")
+plt.title("Silica Concentrate vs Iron Concentrate")
+plt.show()
 
 sns.scatterplot(x=mining_df["% Silica Concentrate"], y=mining_df["% Iron Concentrate"])
 plt.show()  # Scatter plot
@@ -50,3 +57,7 @@ plt.show()  # Scatter plot
 is_correlation_matrix = mining_df[["% Iron Feed", "% Silica Feed"]].corr()
 print("Correlation Matrix:")
 print(is_correlation_matrix)
+
+# for i in mining_df[:5].columns:
+#     sns.distplot(mining_df[i])
+#     plt.show()

@@ -49,16 +49,28 @@ ANN_model.add(Dropout(0.1))
 ANN_model.add(Dense(250, activation="relu"))
 ANN_model.add(Dropout(0.1))
 ANN_model.add(Dense(1, activation="linear"))
-ANN_model.compile(loss="mse", optimizer="adam")
+ANN_model.compile(
+    loss="mse",
+    optimizer="adam",
+    steps_per_execution=10,
+    # metrics=["accuracy"],
+)
 ANN_model.summary()
 
-history = ANN_model.fit(X_train, y_train, validation_split=0.2, epochs=2)
+history = ANN_model.fit(
+    X_train,
+    y_train,
+    batch_size=10,
+    validation_split=0.2,
+    steps_per_epoch=2000,
+    epochs=5,
+)
 
 result = ANN_model.evaluate(X_test, y_test)
-accuracy_ANN = 1 - result
-print(f"Accuracy : {accuracy_ANN}")
+accuracy_ANN = f"{(1 - result) * 100:.2f}"
+print(f"Accuracy : {accuracy_ANN}%")
 
-history.history.keys()
+# history.history.keys()
 
 plt.plot(history.history["loss"])
 plt.plot(history.history["val_loss"])
