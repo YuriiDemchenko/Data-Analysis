@@ -65,10 +65,10 @@ else:
 feature_importances = RandomForest_model.feature_importances_
 features = X.columns
 
-# Візуалізація важливості ознак
-# plt.figure(figsize=(10, 6))
-# plt.barh(features, feature_importances, color="skyblue")
-# plt.xlabel("Важливість ознак")
-# plt.ylabel("Ознаки")
-# plt.title("Важливість ознак у моделі Decision Tree")
-# plt.show()
+Візуалізація важливості ознак
+plt.figure(figsize=(10, 6))
+plt.barh(features, feature_importances, color="skyblue")
+plt.xlabel("Важливість ознак")
+plt.ylabel("Ознаки")
+plt.title("Важливість ознак у моделі Decision Tree")
+plt.show()
